@@ -9,7 +9,7 @@ Reduces the frames in an animated GIF
 
     gr.filePath = 'test/test.gif';
 
-    gr.reduce(function (err) {
+    gr.reduce(function (err, buffer) {
       console.log(gr.frameCount); // Number of final frames
-      console.log(gr.buffer); // Final buffer
+      console.log(buffer); // Final buffer
     });
