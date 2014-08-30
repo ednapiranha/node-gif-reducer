@@ -1,6 +1,6 @@
 {
   "name": "gif-reducer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Reduces the frames in a GIF by half",
   "main": "index.js",
   "dependencies": {

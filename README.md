@@ -11,8 +11,8 @@ Reduces the frames in a GIF by half
 
     gr.reduce(function (err, frames) {
       console.log(frames);
-    });
 
-    gr.bufferize(function (err, buffer) {
-      console.log(buffer);
+      gr.bufferize(function (err, buffer) {
+        console.log(buffer);
+      });
     });
