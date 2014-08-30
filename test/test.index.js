@@ -11,9 +11,9 @@ gr.filePath = 'test/test.gif';
 
 describe('reducer', function () {
   it('should reduce the frames', function (done) {
-    gr.reduce(function (err) {
+    gr.reduce(function (err, buffer) {
       gr.frameCount.should.equal(4);
-      gr.buffer.length.should.equal(1325);
+      buffer.length.should.equal(3261);
       done();
     });
   });
