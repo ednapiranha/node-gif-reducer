@@ -1,7 +1,7 @@
 {
   "name": "gif-reducer",
   "version": "1.0.0",
-  "description": "Reduces the frames in a GIF",
+  "description": "Reduces the frames in a GIF by half",
   "main": "index.js",
   "dependencies": {
     "readimage": "~1.0.0",
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git://github.com/ednapiranha/node-gif-reducer.git"
   },
-  "keywords": [],
+  "keywords": ["gif", "frames", "reduce"],
   "author": "Edna Piranha <jen@ednapiranha.com> (http://ednapiranha.com)",
   "license": "BSD"
 }
