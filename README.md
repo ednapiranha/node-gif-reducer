@@ -1,5 +1,18 @@
-# npm-template
+# GIF Reducer
 
-This is a template for creating new node modules.
+Reduces the frames in a GIF by half
 
-Replace package.json and index.js with your project content.
+## Usage
+
+    var GIFReducer = require('GIFReducer');
+    var gr = new GIFReducer();
+
+    gr.filePath = 'test/test.gif';
+
+    gr.reduce(function (err, frames) {
+      console.log(frames);
+    });
+
+    gr.bufferize(function (err, buffer) {
+      console.log(buffer);
+    });
