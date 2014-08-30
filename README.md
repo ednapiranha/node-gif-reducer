@@ -1,6 +1,6 @@
 # GIF Reducer
 
-Reduces the frames in a GIF by half
+Reduces the frames in an animated GIF
 
 ## Usage
 
@@ -9,10 +9,7 @@ Reduces the frames in a GIF by half
 
     gr.filePath = 'test/test.gif';
 
-    gr.reduce(function (err, frames) {
-      console.log(frames);
-
-      gr.bufferize(function (err, buffer) {
-        console.log(buffer);
-      });
+    gr.reduce(function (err) {
+      console.log(gr.frameCount); // Number of final frames
+      console.log(gr.buffer); // Final buffer
     });

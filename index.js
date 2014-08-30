@@ -7,9 +7,26 @@ var writegif = require('writegif');
 var GIFReducer = function () {
   this.filePath = false;
   this.buffer = false;
+  this.frameCount = 0;
   this.newImage;
 
   var self = this;
+
+  var bufferize = function (next) {
+    writegif(self.newImage, function (err, buffer) {
+      if (err) {
+        next(err);
+        return;
+      }
+
+      next(null, buffer);
+
+      self.newImage = null;
+      self.filePath = false;
+      self.buffer = false;
+      self.frameCount = 0;
+    });
+  };
 
   this.reduce = function (next) {
     try {
@@ -29,12 +46,15 @@ var GIFReducer = function () {
         self.newImage = image;
 
         image.frames.forEach(function (frame) {
-          if (count === 1 || count % 2 === 0) {
+          if (count % 2 === 0 || count % 3 === 0) {
             newFrames.push(frame);
           }
 
           if (count === image.frames.length) {
-            next(null, newFrames);
+            self.frameCount = newFrames.length;
+            self.newImage.frames = newFrames;
+
+            bufferize(next);
           }
 
           count ++;
@@ -43,17 +63,6 @@ var GIFReducer = function () {
     } catch (err) {
       next(err);
     }
-  };
-
-  this.bufferize = function (next) {
-    writegif(this.newImage, function (err, buffer) {
-      if (err) {
-        next(err);
-        return;
-      }
-
-      next(null, buffer);
-    });
   };
 };
 
