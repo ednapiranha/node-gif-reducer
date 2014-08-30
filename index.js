@@ -15,7 +15,10 @@ var GIFReducer = function () {
     try {
       var count = 1;
       var newFrames = [];
-      this.buffer = fs.readFileSync(this.filePath);
+
+      if (this.filePath) {
+        this.buffer = fs.readFileSync(this.filePath);
+      }
 
       readimage(this.buffer, function (err, image) {
         if (err) {
