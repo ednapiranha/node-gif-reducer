@@ -4,6 +4,8 @@ var fs = require('fs');
 var readimage = require('readimage');
 var writegif = require('writegif');
 
+var MIN_FRAMES = 15;
+
 var GIFReducer = function () {
   this.filePath = false;
   this.buffer = false;
@@ -11,6 +13,13 @@ var GIFReducer = function () {
   this.newImage;
 
   var self = this;
+
+  var reset = function () {
+    self.newImage = null;
+    self.filePath = false;
+    self.buffer = false;
+    self.frameCount = 0;
+  };
 
   var bufferize = function (next) {
     writegif(self.newImage, function (err, buffer) {
@@ -20,11 +29,7 @@ var GIFReducer = function () {
       }
 
       next(null, buffer);
-
-      self.newImage = null;
-      self.filePath = false;
-      self.buffer = false;
-      self.frameCount = 0;
+      reset();
     });
   };
 
@@ -41,6 +46,14 @@ var GIFReducer = function () {
         if (err) {
           next(err);
           return;
+        }
+
+        if (image.frames.length < MIN_FRAMES) {
+          self.frameCount = image.frames.length;
+          // Under MIN_FRAMES there isn't any point in reducing them or the image will be useless
+          next(null, self.buffer);
+          return;
+          reset();
         }
 
         self.newImage = image;
