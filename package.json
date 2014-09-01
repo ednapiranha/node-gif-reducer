@@ -1,10 +1,10 @@
 {
   "name": "gif-reducer",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "Reduces the frames in a GIF",
   "main": "index.js",
   "dependencies": {
-    "readimage": "~1.0.0",
+    "readimage": "~1.1.1",
     "writegif": "~1.0.4"
   },
   "devDependencies": {

@@ -13,3 +13,11 @@ Reduces the frames in an animated GIF
       console.log(gr.frameCount); // Number of final frames
       console.log(buffer); // Final buffer
     });
+
+## Notes
+
+If your GIF is 15 frames or less, then it won't be reduced - it will just return back the orignial version.
+
+## Test
+
+    npm test
