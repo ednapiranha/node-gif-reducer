@@ -4,12 +4,12 @@
   "description": "Reduces the frames in a GIF",
   "main": "index.js",
   "dependencies": {
-    "readimage": "~1.1.1",
-    "writegif": "~1.0.4"
+    "readimage": "^1.1.1",
+    "writegif": "^1.0.4"
   },
   "devDependencies": {
-    "mocha": "~1.21.3",
-    "should": "~4.0.4"
+    "mocha": "^1.21.5",
+    "should": "^4.0.4"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha"
@@ -18,7 +18,11 @@
     "type": "git",
     "url": "git://github.com/ednapiranha/node-gif-reducer.git"
   },
-  "keywords": ["gif", "frames", "reduce"],
-  "author": "Edna Piranha <jen@ednapiranha.com> (http://ednapiranha.com)",
-  "license": "BSD"
+  "keywords": [
+    "gif",
+    "frames",
+    "reduce"
+  ],
+  "author": "Jen",
+  "license": "BSD-3-Clause"
 }
